@@ -1,7 +1,10 @@
+wheel
+patterns
+cython 
 gensim
 treelib
 ipykernel
-pattern
 pandas
 openpyxl
 xlrd
+
