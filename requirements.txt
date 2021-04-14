@@ -7,4 +7,8 @@ ipykernel
 pandas
 openpyxl
 xlrd
-
+cached_property
+numpy
+matplotlib
+pycairo
+pygobject

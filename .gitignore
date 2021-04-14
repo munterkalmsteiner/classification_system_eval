@@ -1,3 +1,5 @@
 *ipynb
 env
 models
+results
+__pycache__
