@@ -199,6 +199,10 @@ def path_to_root(tree, node, path):
 def naics(name):
     tree = Tree()
     tree.create_node(name, ROOT_NAME)
+
+    #Since there are no tables in this classification, we create an artificial one so the analysis works.
+    DUMMY_TABLE = "dummy_table"
+    tree.create_node(DUMMY_TABLE, DUMMY_TABLE, ROOT_NAME)
     wb = load_workbook(f'{BASE_PATH}/NAICS/2-6 digit_2017_Codes.xlsx')
     ws = wb.active
     data = ws.values
@@ -219,23 +223,23 @@ def naics(name):
 
         #Several codes have been merged, which breaks the regularity of the code construction. 
         if identifier == "31-33":
-            tree.create_node(content, "31", ROOT_NAME)
-            tree.create_node(content, "32", ROOT_NAME)
-            tree.create_node(content, "33", ROOT_NAME)
+            tree.create_node(content, "31", DUMMY_TABLE)
+            tree.create_node(content, "32", DUMMY_TABLE)
+            tree.create_node(content, "33", DUMMY_TABLE)
             continue;
 
         if identifier == "44-45":
-            tree.create_node(content, "44", ROOT_NAME)
-            tree.create_node(content, "45", ROOT_NAME)
+            tree.create_node(content, "44", DUMMY_TABLE)
+            tree.create_node(content, "45", DUMMY_TABLE)
             continue;
 
         if identifier == "48-49":
-            tree.create_node(content, "48", ROOT_NAME)
-            tree.create_node(content, "49", ROOT_NAME)
+            tree.create_node(content, "48", DUMMY_TABLE)
+            tree.create_node(content, "49", DUMMY_TABLE)
             continue;
 
         if len(identifier) == 2:
-            parent = ROOT_NAME
+            parent = DUMMY_TABLE
         else:
             parent = identifier[:-1]
 
