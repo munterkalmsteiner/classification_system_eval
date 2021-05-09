@@ -16,6 +16,7 @@ csystems = [
     { "name": "omniclass","creator": treeify.omniclass, "d2vmodel": model_en},
     { "name": "coclass", "creator": treeify.coclass, "d2vmodel": model_sv},
     { "name": "sb11", "creator": treeify.sb11, "d2vmodel": model_sv},
+    { "name": "naics", "creator": treeify.naics, "d2vmodel": model_en}
 ]
 
 
