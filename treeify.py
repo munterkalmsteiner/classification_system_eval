@@ -195,3 +195,50 @@ def path_to_root(tree, node, path):
     if not node.is_root():
         path_to_root(tree, tree.parent(node.identifier), path)
     return path
+
+def naics(name):
+    tree = Tree()
+    tree.create_node(name, ROOT_NAME)
+    wb = load_workbook(f'{BASE_PATH}/NAICS/2-6 digit_2017_Codes.xlsx')
+    ws = wb.active
+    data = ws.values
+
+    #Skipping first two rows
+    next(data)
+    next(data)
+
+    for row in data:
+        identifier = str(row[1])
+
+        #Skip identifiers ending with "0" since these have the same content as their parent.
+        #This would introduce artificial leaf nodes. 
+        if identifier[-1] == "0":
+            continue
+
+        content = row[2].strip()
+
+        #Several codes have been merged, which breaks the regularity of the code construction. 
+        if identifier == "31-33":
+            tree.create_node(content, "31", ROOT_NAME)
+            tree.create_node(content, "32", ROOT_NAME)
+            tree.create_node(content, "33", ROOT_NAME)
+            continue;
+
+        if identifier == "44-45":
+            tree.create_node(content, "44", ROOT_NAME)
+            tree.create_node(content, "45", ROOT_NAME)
+            continue;
+
+        if identifier == "48-49":
+            tree.create_node(content, "48", ROOT_NAME)
+            tree.create_node(content, "49", ROOT_NAME)
+            continue;
+
+        if len(identifier) == 2:
+            parent = ROOT_NAME
+        else:
+            parent = identifier[:-1]
+
+        tree.create_node(content, identifier, parent)
+
+    return tree
