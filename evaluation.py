@@ -5,17 +5,10 @@ import utils
 import metrics
 from gensim.models.doc2vec import Doc2Vec
 
-def analyze_units(units):
-    data = []
-    for unit in sorted(units, reverse = True):
-        data.append([unit.identifier, len(unit.nodes), len(unit.pairs), len(unit.outside_nodes), unit.min_similarity, unit.max_similarity])
-
-    df = pd.DataFrame(data, columns=['identifier', 'nodes', 'pairs', 'outsidenodes', 'minsim', 'maxsim'])
-
 results_path = "results"
 
 print('Loading doc2vec models...')
-model_en = Doc2Vec.load("models/wikipedia_20210308")
+model_en = Doc2Vec.load("models/wikipedia_en_20210308")
 model_sv = Doc2Vec.load("models/wikipedia_sv_20210412")
 
 csystems = [
