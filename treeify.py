@@ -246,3 +246,36 @@ def naics(name):
         tree.create_node(content, identifier, parent)
 
     return tree
+
+def nace(name):
+    tree = Tree();
+    tree.create_node(name, ROOT_NAME)
+
+    #Since there are no tables in this classification, we create an artificial one so the analysis works.
+    DUMMY_TABLE = "dummy_table"
+    tree.create_node(DUMMY_TABLE, DUMMY_TABLE, ROOT_NAME)
+
+    with open(f'{BASE_PATH}/NACE/NACE_REV2_20210505_094912.csv') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+
+        #Skip header
+        next(reader)
+
+        for row in reader:
+            level = row[1].strip()
+            identifier = row[2].strip()
+            parent = row[3].strip()
+            content = row[4].strip()
+
+            if len(parent) == 0:
+                tree.create_node(content, identifier, DUMMY_TABLE)
+            else:
+                parent_node = tree.get_node(parent)
+                #Skip nodes whose parents have the same content and are at the lowest level.
+                #This would introduce artificial leaf nodes.
+                if parent_node.tag == content and level == "4":
+                    continue
+                else:
+                    tree.create_node(content, identifier, parent)
+
+    return tree
