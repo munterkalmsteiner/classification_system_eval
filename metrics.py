@@ -89,26 +89,21 @@ def create_analysis_units(tree, model):
 
     for node in tree.leaves():
         parent = tree.parent(node.identifier)
-        siblings = tree.siblings(node.identifier)
-        for sibling in siblings:
-            subtree = tree.subtree(sibling.identifier)
-            #Here we might get also subtrees that are imbalanced, i.e. have leave nodes with varying depth, e.g.:
-            # root
-            # |_A
-            # |_B
-            #   |_C
-            #   |_D
-            # A is a leaf node and a sibling of B, which has however two children. For this analysis, we are not
-            # interested in A, we only keep subtrees where depth is 1.
-            if subtree.depth() == 1:
-                leaf_node_units[subtree.root] = subtree.children(subtree.root)
+        children = tree.children(parent.identifier)
+
+        for child in children:
+            if child.is_leaf():
+                if parent.identifier in leaf_node_units:
+                    leaf_node_units[parent.identifier].add(child)
+                else:
+                    leaf_node_units[parent.identifier] = {child}
 
     analysis_units = list()
     for unit in leaf_node_units:
-        nodes = leaf_node_units[unit]
+        nodes = list(leaf_node_units[unit])
         #Only with more than 2 nodes, we can create node pairs and calculate minimum and maximum similarity
         #Hence, analysis units with less than 3 nodes are not interesting.
-        if len(nodes) > 2: 
+        if len(nodes) > 2:
             id = tree.parent(nodes[0].identifier).identifier
             analysis_units.append(AnalysisUnit(id, nodes, model))
 
