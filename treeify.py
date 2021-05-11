@@ -2,6 +2,7 @@ import glob
 import xlrd
 import re
 import csv
+import json
 from openpyxl import load_workbook
 import unicodedata as ud
 from treelib import Node, Tree
@@ -279,3 +280,48 @@ def nace(name):
                     tree.create_node(content, identifier, parent)
 
     return tree
+
+def eucyber(name):
+    tree = Tree();
+    tree.create_node(name, ROOT_NAME)
+
+    with open(f'{BASE_PATH}/european_cybersecurity_taxonomy/european_cybersecurity_taxonomy_manual_extraction.csv') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+
+        #Skip header
+        next(reader)
+
+        for row in reader:
+            identifier = row[0].strip()
+            parent = row[1].strip()
+            content = row[2].strip()
+
+            if len(parent) == 0:
+                tree.create_node(content, identifier, ROOT_NAME)
+            else:
+                tree.create_node(content, identifier, parent)
+
+    return tree
+
+def traverse_dict(tree, d, parent=None):
+    identifier = d["id"]
+    content = d["name"]
+
+    parent = ROOT_NAME if parent is None else parent
+    tree.create_node(content, identifier, parent)
+
+    if "children" in d:
+        for child in d["children"]:
+            traverse_dict(tree, child, identifier)
+
+def mahini(name):
+    tree = Tree()
+    tree.create_node(name, ROOT_NAME)
+
+    with open(f'{BASE_PATH}/mahini_cybersecurity/Taxonomy.json') as jsonfile:
+        data = json.load(jsonfile)
+
+    traverse_dict(tree, data)
+
+    return tree
+

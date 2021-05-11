@@ -1,0 +1,207 @@
+Id,ParentId,Description
+1,,Research Domain
+1-1,1,"Assurance, Audit and Certification"
+1-1-1,1-1,Assurance
+1-1-2,1-1,Audit
+1-1-3,1-1,Assessment
+1-1-4,1-1,Certification
+1-2,1,Cryptology (Cryptography and Cryptanalysis)
+1-2-1,1-2,Asymmetric cryptography
+1-2-2,1-2,Symmetric cryptography
+1-2-3,1-2,"Cryptanalysis methodologies, techniques and tools"
+1-2-4,1-2,Functional encryption
+1-2-5,1-2,Mathematical foundations of cryptography
+1-2-6,1-2,"Crypto material management (e.g. key management, PKI)"
+1-2-7,1-2,Secure multi-party computation
+1-2-8,1-2,Random number generation
+1-2-9,1-2,Digital signatures
+1-2-10,1-2,Hash functions
+1-2-11,1-2,Message authentication
+1-2-12,1-2,Quantum cryptography
+1-2-13,1-2,Post-quantum cryptography
+1-2-14,1-2,Homomorphic encryption
+1-3,1,Data Security and Privacy
+1-3-1,1-3,Privacy requirements for data management systems
+1-3-2,1-3,"Design, implementation, and operation of data management systems that include security and privacy functions"
+1-3-3,1-3,"Anonymity, pseudonymity, unlinkability, undetectability, or unobservability"
+1-3-4,1-3,Data integrity
+1-3-5,1-3,Privacy Enhancing Technologies (PET)
+1-3-6,1-3,Digital Rights Management (DRM)
+1-3-7,1-3,Risk analysis and attacks with respect to de-anonymization or data re-identification (e.g. inference attack)
+1-3-8,1-3,"Eavesdropping techniques (e.g. via electromagnetic radiation, visual observation of blinking LEDs, acoustic via keyboard typing noise)"
+1-3-9,1-3,Data usage control
+1-4,1,Education and Training
+1-4-1,1-4,Higher Education
+1-4-2,1-4,Professional training
+1-4-3,1-4,Cybersecurity-aware culture (e.g. including children education)
+1-4-4,1-4,"Cyber ranges, Capture the Flag, exercises, simulation platforms, educational/training tools, cybersecurity awareness"
+1-4-5,1-4,Education methodology
+1-4-6,1-4,Vocational training
+1-5,1,Human Aspects
+1-5-1,1-5,Accessibility
+1-5-2,1-5,Usability
+1-5-3,1-5,"Human-related risks/threats (social engineering, insider misuse, etc.)"
+1-5-4,1-5,Socio-technical security
+1-5-5,1-5,Enhancing risk perception
+1-5-6,1-5,Psychological models and cognitive processes
+1-5-7,1-5,Forensic cyberpsychology
+1-5-8,1-5,User acceptance of security policies and technologies
+1-5-9,1-5,Automating security functionality
+1-5-10,1-5,Non-intrusive security
+1-5-11,1-5,"Privacy concerns, behaviours, and practices"
+1-5-12,1-5,Computer ethics and security
+1-5-13,1-5,Transparent security
+1-5-14,1-5,Cybersecurity profiling
+1-5-15,1-5,Cyberpsychology
+1-5-16,1-5,Security visualization
+1-5-17,1-5,Gamification
+1-5-18,1-5,Human aspects of trust
+1-5-19,1-5,Human perception of cybersecurity
+1-5-20,1-5,History of cybersecurity
+1-6,1,Identity Management
+1-6-1,1-6,"Identity and attribute management models, frameworks, applications, technologies, and tools (e.g. PKI, RFID, SSO, attribute-based credentials, federated IdM etc.)"
+1-6-2,1-6,"Protocols and frameworks for authentication, authorization, and rights management"
+1-6-3,1-6,Privacy and identity management (e.g. privacy-preserving authentication)
+1-6-4,1-6,Identity management quality assurance
+1-6-5,1-6,Optical and electronic document security
+1-6-6,1-6,Legal aspects of identity management
+1-6-7,1-6,"Biometric methods, technologies and tools"
+1-7,1,Incident Handling and Digital Forensics
+1-7-1,1-7,"Incident analysis, communication, documentation, forecasting (intelligence based), response, and reporting"
+1-7-2,1-7,"Theories, techniques and tools for the identification, collection, attribution, acquisition, analysis and preservation of digital evidence (e.g. code authorship and attacker identification, provenance assurance, digital evidence correlation, digital evidence triage)"
+1-7-3,1-7,Vulnerability analysis and response
+1-7-4,1-7,Digital forensic processes and workflow models
+1-7-5,1-7,Digital forensic case studies
+1-7-6,1-7,Policy issues related to digital forensics
+1-7-7,1-7,Resilience aspects
+1-7-8,1-7,Anti-forensics and malware analytics
+1-7-9,1-7,Citizen cooperation and reporting
+1-7-10,1-7,Coordination and information sharing in the context of cross-border/organizational incidents
+1-8,1,Legal Aspects
+1-8-1,1-8,Cybercrime prosecution and law enforcement
+1-8-2,1-8,Intellectual property rights
+1-8-3,1-8,Cybersecurity regulation analysis and design
+1-8-4,1-8,Investigations of computer crime (cybercrime) and security violations
+1-8-5,1-8,"Legal and societal issues in information security (e.g. identity management, digital forensics, cybersecurity litigation)"
+1-9,1,Network and Distributed Systems
+1-9-1,1-9,"Network security (principles, methods, protocols, algorithms and technologies)"
+1-9-2,1-9,Distributed systems security
+1-9-3,1-9,"Managerial, procedural and technical aspects of network security"
+1-9-4,1-9,Requirements for network security
+1-9-5,1-9,Protocols and frameworks for secure distributed computing
+1-9-6,1-9,Network layer attacks and mitigation techniques
+1-9-7,1-9,Network attack propagation analysis
+1-9-8,1-9,Distributed systems security analysis and simulation
+1-9-9,1-9,Distributed consensus techniques
+1-9-10,1-9,Fault tolerant models
+1-9-11,1-9,Secure distributed computations
+1-9-12,1-9,Network interoperability
+1-9-13,1-9,Secure system interconnection
+1-9-14,1-9,"Privacy-friendly communication architectures and services (e.g. Mix-networks, broadcast protocols, and anonymous communication)"
+1-9-15,1-9,Network steganography
+1-10,1,Security Management and Governance
+1-10-1,1-10,"Risk management, including modelling, assessment, analysis and mitigations"
+1-10-2,1-10,Modelling of cross-sectoral interdependencies and cascading effects
+1-10-3,1-10,Threats and vulnerabilities modelling
+1-10-4,1-10,"Attack modelling, techniques, and countermeasures (e.g. adversary machine learning)"
+1-10-5,1-10,Managerial aspects concerning information security
+1-10-6,1-10,Assessment of information security effectiveness and degrees of control
+1-10-7,1-10,Identification of the impact of hardware and software changes on the management of Information Security
+1-10-8,1-10,Standards for Information Security
+1-10-9,1-10,"Governance aspects of incident management, disaster recovery, business continuity"
+1-10-10,1-10,Techniques to ensure business continuity/disaster recovery
+1-10-11,1-10,"Compliance with information security and privacy policies, procedures, and regulations"
+1-10-12,1-10,Economic aspects of the cybersecurity ecosystem
+1-10-13,1-10,Privacy impact assessment and risk management
+1-10-14,1-10,Processes and procedures to ensure device end-of-life security and privacy (e.g. IT waste management and recycling)
+1-10-15,1-10,Capability maturity models (e.g. assessment of capacities and capabilities)
+1-11,1,Security Measurements
+1-11-1,1-11,Security analytics and visualization
+1-11-2,1-11,"Security metrics, key performance indicators, and benchmarks"
+1-11-3,1-11,Validation and comparison frameworks for security metrics
+1-11-4,1-11,Measurement and assessment of security levels
+1-12,1,Software and Hardware Security Engineering
+1-12-1,1-12,"Security requirements engineering with emphasis on identity, privacy, accountability, and trust"
+1-12-2,1-12,Security and risk analysis of components compositions
+1-12-3,1-12,Secure software architectures and design (security by design)
+1-12-4,1-12,Security design patterns
+1-12-5,1-12,Secure programming principles and best practices
+1-12-6,1-12,Security support in programming environments
+1-12-7,1-12,Security documentation
+1-12-8,1-12,Refinement and verification of security management policy models
+1-12-9,1-12,Runtime security verification and enforcement
+1-12-10,1-12,Security testing and validation
+1-12-11,1-12,Vulnerability discovery and penetration testing
+1-12-12,1-12,Quantitative security for assurance
+1-12-13,1-12,Intrusion detection and honeypots
+1-12-14,1-12,Malware analysis including adversarial learning of malware
+1-12-15,1-12,Model-driven security and domain-specific modelling languages
+1-12-16,1-12,"Self-* including self-healing, self-protecting, self-configuration systems"
+1-12-17,1-12,"Attack techniques (e.g. side channel attacks, power attacks, stealth attacks, advanced persistent attacks, rowhammer attacks)"
+1-12-18,1-12,Fault injection testing and analysis
+1-12-19,1-12,Cybersecurity and cyber-safety co-engineering
+1-12-20,1-12,Privacy by design
+1-13,1,"Steganography, Steganalysis and Watermarking"
+1-13-1,1-13,Steganography
+1-13-2,1-13,Steganalysis
+1-13-3,1-13,Digital watermarking
+1-14,1,Theoretical Foundations
+1-14-1,1-14,"Formal specification of various aspects of security (e.g properties, threat models, etc.)"
+1-14-2,1-14,"Formal specification, analysis, and verification of software and hardware"
+1-14-3,1-14,"Information flow modelling and its application to confidentiality policies, composition of systems, and covert channel analysis"
+1-14-4,1-14,New theoretically-based techniques for the formal analysis and design of cryptographic protocols and their applications
+1-14-5,1-14,Formal verification of security assurance
+1-14-6,1-14,Cybersecurity uncertainty models
+1-14-7,1-14,"Cybersecurity concepts, definitions, ontologies, taxonomies, foundational aspects"
+1-15,1,Trust Management and Accountability
+1-15-1,1-15,"Semantics and models for security, accountability, privacy, and trust"
+1-15-2,1-15,"Trust management architectures, mechanisms and policies"
+1-15-3,1-15,Trust and privacy
+1-15-4,1-15,Identity and trust management
+1-15-5,1-15,Trust in securing digital as well as physical assets
+1-15-6,1-15,Trust in decision making algorithms
+1-15-7,1-15,Trust and reputation of social and mainstream media
+1-15-8,1-15,Social aspects of trust
+1-15-9,1-15,Reputation models
+1-15-10,1-15,Trusted computing
+1-15-11,1-15,Algorithmic auditability and accountability (e.g. explainable AI)
+2,,Sectorial Dimensions
+2-1,2,Audiovisual and media
+2-2,2,Chemical
+2-3,2,Defence
+2-4,2,Digital Services and Platforms
+2-5,2,Energy
+2-6,2,Financial
+2-7,2,Food and drink
+2-8,2,Government
+2-9,2,Health
+2-10,2,Manufacturing and Supply Chain
+2-11,2,Nuclear
+2-12,2,Safety and Security
+2-13,2,Space
+2-14,2,Telecomm Infrastructure
+2-15,2,Transportation
+3,,Technologies and Use Cases Dimension
+3-1,3,Artificial intelligence
+3-2,3,Big Data
+3-3,3,Blockchain and Distributed Ledger Technology (DLT)
+3-4,3,"Cloud, Edge and Virtualisation"
+3-5,3,Critical Infrastructure Protection (CIP)
+3-6,3,Protection of public spaces
+3-7,3,Disaster resilience and crisis management
+3-8,3,Fight against crime and terrorism
+3-9,3,Border and external security
+3-10,3,Local/wide area observation and surveillance
+3-11,3,"Hardware technology (RFID, chips, sensors, networking, etc.)"
+3-12,3,High-performance computing (HPC)
+3-13,3,Human Machine Interface (HMI)
+3-14,3,Industrial IoT and Control Systems (e.g. SCADA and Cyber Physical Systems – CPS)
+3-15,3,Information Systems
+3-16,3,"Internet of Things, embedded systems, pervasive systems"
+3-17,3,Mobile Devices
+3-18,3,Operating Systems
+3-19,3,Quantum Technologies (e.g. computing and communication)
+3-20,3,Robotics
+3-21,3,Satellite systems and applications
+3-22,3,Vehicular Systems (e.g. autonomous vehicles)
+3-23,3,UAV (unmanned aerial vehicles).
