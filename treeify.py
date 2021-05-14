@@ -314,11 +314,11 @@ def traverse_dict(tree, d, parent=None):
         for child in d["children"]:
             traverse_dict(tree, child, identifier)
 
-def mahini(name):
+def mahaini(name):
     tree = Tree()
     tree.create_node(name, ROOT_NAME)
 
-    with open(f'{BASE_PATH}/mahini_cybersecurity/Taxonomy.json') as jsonfile:
+    with open(f'{BASE_PATH}/mahaini_cybersecurity/Taxonomy.json') as jsonfile:
         data = json.load(jsonfile)
 
     traverse_dict(tree, data)
