@@ -9,13 +9,10 @@ results_path = "results"
 
 print('Loading doc2vec models...')
 model_en = Doc2Vec.load("models/wikipedia_en_20210308")
-model_sv = Doc2Vec.load("models/wikipedia_sv_20210412")
 
 csystems = [
     { "name": "uniclass", "creator": treeify.uniclass, "d2vmodel": model_en},
     { "name": "omniclass","creator": treeify.omniclass, "d2vmodel": model_en},
-    { "name": "coclass", "creator": treeify.coclass, "d2vmodel": model_sv},
-    { "name": "sb11", "creator": treeify.sb11, "d2vmodel": model_sv},
     { "name": "naics", "creator": treeify.naics, "d2vmodel": model_en},
     { "name": "nace", "creator": treeify.nace, "d2vmodel": model_en},
     { "name": "eucyber", "creator": treeify.eucyber, "d2vmodel": model_en},
