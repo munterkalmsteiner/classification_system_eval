@@ -50,11 +50,17 @@ class AnalysisUnit:
 
             unknown_tokens = self.__find_unknown_tokens(tokens0 + tokens1)
 
-            if len(unknown_tokens) == 0:
-                similarity = self.doc2vec.wv.n_similarity(tokens0, tokens1)
-                self.pairs.append(self.Pair(leaf0, leaf1, similarity))
-            else:
+            if len(tokens0) == 0 or len(tokens1) == 0:
+                self.pairs.append(self.Pair(leaf0, leaf1, -1, [leaf0.tag, leaf1.tag]))
+                continue
+
+            if len(unknown_tokens) != 0:
                 self.pairs.append(self.Pair(leaf0, leaf1, -1, unknown_tokens))
+                continue
+
+            similarity = self.doc2vec.wv.n_similarity(tokens0, tokens1)
+            self.pairs.append(self.Pair(leaf0, leaf1, similarity))
+
 
     def __eq__(self, other):
         return (self.minimum_similarity, self.min_max_similarity()) == (other.minimum_similarity, other.min_max_similarity())
@@ -72,7 +78,7 @@ class AnalysisUnit:
 
                     unknown_tokens = self.__find_unknown_tokens(self_tokens + other_tokens)
 
-                    if len(unknown_tokens) == 0:
+                    if len(unknown_tokens) == 0 and len(self_tokens) > 0 and len(other_tokens) > 0:
                         similarity = self.doc2vec.wv.n_similarity(self_tokens, other_tokens)
                         if similarity > self.minimum_similarity:
                             self.outside_nodes.append((self_node, other_node, similarity))
