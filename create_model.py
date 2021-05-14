@@ -10,10 +10,6 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 
 assert word2vec.FAST_VERSION > -1
 
-# Sources
-# https://dumps.wikimedia.org/enwiki/
-# https://dumps.wikimedia.org/svwiki/
-
 
 def myinit(self, fname, processes=None, lemmatize=utils.has_pattern(), dictionary=None,
              filter_namespaces=('0',), tokenizer_func=wc.tokenize, article_min_tokens=wc.ARTICLE_MIN_WORDS,
@@ -85,7 +81,10 @@ def myinit(self, fname, processes=None, lemmatize=utils.has_pattern(), dictionar
 #pruned at the default 2M tokens.
 wc.WikiCorpus.__init__ = myinit
 
-wiki = wc.WikiCorpus("/mnt/8tb_hdd/users/mun/corpora/wikipedia/20210308_enwiki-latest-pages-articles.xml.bz2", token_max_len=30)
+
+# Get the wikipedia articles from here:
+# https://dumps.wikimedia.org/enwiki/
+wiki = wc.WikiCorpus("enwiki-latest-pages-articles.xml.bz2", token_max_len=30)
 
 class TaggedWikiDocument(object):
     def __init__(self, wiki):
@@ -100,4 +99,4 @@ cores = multiprocessing.cpu_count()
 model = Doc2Vec(dm=0, dbow_words=1, vector_size=200, window=8, min_count=10, epochs=30, workers=cores)
 model.build_vocab(documents)
 model.train(documents, total_examples=model.corpus_count, epochs=model.iter)
-model.save("wikipedia_en_20210308")
+model.save("wikipedia_en")
