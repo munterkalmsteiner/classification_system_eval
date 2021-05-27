@@ -59,24 +59,30 @@ def robustness(units):
 
     The overall robustness of a set of analysis units is their arithmetic mean.
     '''
-    total_nodes = 0
+    total_usable_nodes = 0
+    total_unusable_nodes = 0
     for unit in units:
-        total_nodes = total_nodes + len(unit.nodes)
+        total_usable_nodes = total_usable_nodes + len(unit.nodes)
+        total_unusable_nodes = total_unusable_nodes + len(unit.unusable_nodes)
+    total_nodes = total_usable_nodes + total_unusable_nodes
+
 
     rb = 0
     units_rb = []
 
     for unit in units:
-        nodes_in_au = len(unit.nodes)
+        usable_nodes = len(unit.nodes)
+        unusable_nodes = len(unit.unusable_nodes)
+        nodes_in_au = usable_nodes + unusable_nodes
         outside_nodes = len(unit.outside_nodes)
-        outside_proportion = outside_nodes / (nodes_in_au * (total_nodes - nodes_in_au))
+        outside_proportion = outside_nodes / (usable_nodes * (total_usable_nodes - usable_nodes))
         assert outside_proportion >= 0 and outside_proportion <= 1, f'Outside proportion is beyond expected interval: {outside_proportion}'
         rb = rb + 1 - outside_proportion
-        units_rb.append((unit.identifier, nodes_in_au, outside_nodes, outside_proportion))
+        units_rb.append((unit.identifier, nodes_in_au, usable_nodes, unusable_nodes, outside_nodes, outside_proportion))
 
-    result = f'Robustness: {rb / len(units)} | Units: {len(units)} | Total unit nodes: {total_nodes}\n'
-    for unit_rb in sorted(units_rb, key=lambda tup: tup[3]):
-        result = result + f'\tUnit: {unit_rb[0]} | Nodes: {unit_rb[1]} | Outside nodes: {unit_rb[2]} | Outside proportion: {unit_rb[3]}\n'
+    result = f'Robustness: {rb / len(units)} | Units: {len(units)} | Total/Usable/Unusable nodes: {total_nodes}/{total_usable_nodes}/{total_unusable_nodes}\n'
+    for unit_rb in sorted(units_rb, key=lambda tup: tup[5]):
+        result = result + f'\tUnit: {unit_rb[0]} | Total/Usable/Unusable nodes: {unit_rb[1]}/{unit_rb[2]}/{unit_rb[3]} | Outside nodes: {unit_rb[4]} | Outside proportion: {unit_rb[5]}\n'
 
     return result
 
