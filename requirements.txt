@@ -11,4 +11,4 @@ cached_property
 numpy
 matplotlib
 pycairo
-pygobject
+tqdm
