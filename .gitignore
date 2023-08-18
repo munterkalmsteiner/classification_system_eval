@@ -1,5 +1,7 @@
 *ipynb
 env
+venv
 models
 results
 __pycache__
+.DS_Store
